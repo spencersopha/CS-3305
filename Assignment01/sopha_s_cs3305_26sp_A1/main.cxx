@@ -9,7 +9,7 @@
 #include "vector.h"
 #include "matrix.h"
 
-using namespace chou;    // change to your namespace name
+using namespace spencer;  
 
 int main()
 {
