@@ -1,10 +1,3 @@
-// CS 3305
-// Test main file for Assignment 1
-// Note:
-//  1. change the namespace name
-//  2. fyi, my vector constructor prototype is (column vector is default):
-//      vector(double xx1=1, double xx2=1, bool is_row=false);
-
 #include <iostream>
 #include "vector.h"
 #include "matrix.h"
