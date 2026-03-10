@@ -10,7 +10,7 @@ private:
     bool is_row;    // true = row vector, false = column vector
 
 public:
-    // Default consructor with default argument values
+    // Default constructor with default argument values
     vector(double x1 = 1, double x2 = 1, bool is_row = false);
 
     // Getters
