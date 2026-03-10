@@ -1,74 +1,57 @@
-#ifndef MATRIX_H
-#define MATRIX_H
-
-#include "vector.h"
+#ifndef VECTOR_H
+#define VECTOR_H
 
 namespace spencer {
 
-class matrix {
+class vector {
 private:
-    double a11, a12, a21, a22;
+    double x1;
+    double x2;
+    bool is_row;    // true = row vector, false = column vector
 
 public:
-// First constructor: takes two vectors as parameters
-matrix(vector v1, vector v2);
+    // Default consructor with default argument values
+    vector(double x1 = 1, double x2 = 1, bool is_row = false);
 
-// Default constructor: four default values forming identity matrix
-matrix(double a11 = 1, double a12 = 0, double a21 = 0, double a22 = 1);
+    // Getters
+    double get_x1();
+    double get_x2();
+    bool get_is_row();
 
-// Getters
-double get_a11();
-double get_a12();
-double get_a21();
-double get_a22();
+    // Setters
+    void set_x1(double val);
+    void set_x2(double val);
+    void set_is_row(bool val);
 
-// Setters
-void set_a11(double val);
-void set_a12(double val);
-void set_a21(double val);
-void set_a22(double val);
+    // Transpose
+    vector transpose();
 
-// Transpose
-matrix transpose();
-
-// Check if identity matrix
-bool is_identity();
-
-// Determinant
-double determinant();
-
-// Inverse
-matrix inverse();
-
-// Print
-void print();
+    // Print
+    void print();
 };
 
-// Dot product: matrix * matrix
-matrix dot(matrix m1, matrix m2);
+// Operator overloading: vector + vector
+vector operator+(vector lhs, vector rhs);
+// Operator overloading: vector - vector
+vector operator-(vector lhs, vector rhs);
+// Operator overloading: vector * vector
+vector operator*(vector lhs, vector rhs);
 
-// Dot product: matrix * column vector
-vector dot(matrix m, vector v);
 
-// Operator overloading: matrix + matrix
-matrix operator+(matrix lhs, matrix rhs);
-// Operator overloading: matrix - matrix
-matrix operator-(matrix lhs, matrix rhs);
-// Operator overloading: matrix * matrix
-matrix operator*(matrix lhs, matrix rhs);
+// Operator overloading: vector + scalar
+vector operator+(vector v, double k);
+// Operator overloading: scalar + vector
+vector operator+(double k, vector v);
 
-// Operator overloading: matrix + scalar
-matrix operator+(matrix m, double k);
-// Operatior overloading: scalar + matrix
-matrix operator+(double k, matrix m);
-// Operator overloading: matrix - scalar
-matrix operator-(matrix m, double k);
-// Operator overloading: scalar - matrix
-matrix operator-(double k, matrix m);
-// Operator overloading: matrix * scalar
-matrix operator*(matrix m, double k);
-// Operator overloading: scalar * matrix
-matrix operator*(double k, matrix m);
+// Operator overloading: vector - scalar
+vector operator-(vector v, double k);
+// Operator overloading: scalar - vector
+vector operator-(double k, vector v);
+
+// Operator overloading: vector * scalar
+vector operator*(vector v, double k);
+// Operator overloading: scalar * vector
+vector operator*(double k, vector v);
 
 }
 
