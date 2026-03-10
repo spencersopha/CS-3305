@@ -1,5 +1,5 @@
-#ifndef vector_h
-#define vector_h
+#ifndef VECTOR_H
+#define VECTOR_H
 
 namespace spencer {
 
@@ -10,13 +10,13 @@ private:
     bool is_row;    // true = row vector, false = column vector
 
 public:
-    // Default constructor with default argument values
+    // Default consructor with default argument values
     vector(double x1 = 1, double x2 = 1, bool is_row = false);
 
     // Getters
-    double get_x1() const;
-    double get_x2() const;
-    bool get_is_row() const;
+    double get_x1();
+    double get_x2();
+    bool get_is_row();
 
     // Setters
     void set_x1(double val);
@@ -24,34 +24,34 @@ public:
     void set_is_row(bool val);
 
     // Transpose
-    vector transpose() const;
+    vector transpose();
 
-    // Void
-    void print() const;
+    // Print
+    void print();
 };
 
 // Operator overloading: vector + vector
-vector operator+(const vector& lhs, const vector& rhs);
+vector operator+(vector lhs, vector rhs);
 // Operator overloading: vector - vector
-vector operator-(const vector& lhs, const vector& rhs);
+vector operator-(vector lhs, vector rhs);
 // Operator overloading: vector * vector
-vector operator*(const vector& lhs, const vector& rhs);
+vector operator*(vector lhs, vector rhs);
 
 
 // Operator overloading: vector + scalar
-vector operator+(const vector& v, double k);
+vector operator+(vector v, double k);
 // Operator overloading: scalar + vector
-vector operator+(double k, const vector& v);
+vector operator+(double k, vector v);
 
 // Operator overloading: vector - scalar
-vector operator-(const vector& v, double k);
+vector operator-(vector v, double k);
 // Operator overloading: scalar - vector
-vector operator-(double k, const vector& v);
+vector operator-(double k, vector v);
 
 // Operator overloading: vector * scalar
-vector operator*(const vector& v, double k);
+vector operator*(vector v, double k);
 // Operator overloading: scalar * vector
-vector operator*(double k, const vector& v);
+vector operator*(double k, vector v);
 
 }
 
